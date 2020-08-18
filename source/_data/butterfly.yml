@@ -57,7 +57,7 @@ algolia_search:
 
 # Local search
 local_search:
-  enable: ture
+  enable: true
   labels:
     input_placeholder: Search for Posts
     hits_empty: "We didn't find any results for the search: ${query}" # if there are no result
@@ -713,7 +713,7 @@ pjax: false
 
 # Inject the css and script (aplayer/meting)
 aplayerInject:
-  enable: false
+  enable: true
   per_page: true
 
 # Snackbar (Toast Notification 彈窗)
