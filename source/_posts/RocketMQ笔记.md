@@ -1,6 +1,7 @@
 ---
 title: RocketMQ笔记
 date: 2020-08-17 22:17:22
+categories: Java
 tags:
 	- RocketMQ
 	- 中间件
