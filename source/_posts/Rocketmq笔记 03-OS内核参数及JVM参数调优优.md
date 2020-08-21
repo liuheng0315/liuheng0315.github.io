@@ -1,6 +1,5 @@
 ---
-layout: rocketmq笔记
-title: rocketmq笔记 03-OS内核参数及JVM参数调优
+title: RocketMQ笔记 03-OS内核参数及JVM参数调优
 date: 2020-08-21 11:02:56
 categories: Java
 tags:

@@ -1,5 +1,4 @@
 ---
-layout: rocketmq笔记
 title: RocketMQ笔记 02-基本原理
 date: 2020-08-18 17:14:46
 categories: Java
