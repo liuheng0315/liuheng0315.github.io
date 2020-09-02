@@ -1,10 +1,9 @@
 ---
 title: RocketMQ笔记 05-消费者如何拉取消息
 date: 2020-08-27 10:59:26
-categories: Java
+categories: 消息中间件
 tags:
 	- RocketMQ
-	- 中间件
 cover: https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2582113194,968310573&fm=26&gp=0.jpg
 typora-root-url: ..
 ---
