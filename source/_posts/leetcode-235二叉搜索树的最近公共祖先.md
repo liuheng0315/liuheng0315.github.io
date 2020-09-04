@@ -1,5 +1,5 @@
 ---
-title: leetcode-235二叉搜索树的最近公共祖先
+title: leetcode-235.二叉搜索树的最近公共祖先
 date: 2020-09-04 22:35:35
 categories: 
 		- leetcode
