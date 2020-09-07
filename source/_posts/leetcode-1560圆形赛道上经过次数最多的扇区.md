@@ -1,7 +1,12 @@
 ---
 title: leetcode-1560圆形赛道上经过次数最多的扇区
 date: 2020-09-07 18:27:01
-tags:
+categories: 
+		- leetcode
+tags: 
+	- leetcode
+cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
+typora-root-url: ..
 ---
 
 [1560. 圆形赛道上经过次数最多的扇区](https://leetcode-cn.com/problems/most-visited-sector-in-a-circular-track/)
