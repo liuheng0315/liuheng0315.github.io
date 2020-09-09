@@ -66,3 +66,29 @@ class Solution {
 }
 ```
 
+
+
+**题解思路**
+
+```java
+class Solution{
+     public TreeNode lowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q) {
+         if(root == null || root == p || root == q){
+             return root;
+         }
+         TreeNode left = lowestCommonAncestor(root.left, p, q);
+         TreeNode right = lowestCommonAncestor(root.right, p, q);
+         // 最近公共祖先在右边
+         if(left == null){
+             return right;
+         }
+         // 最近公共祖先在左边边
+         if(right == null){
+             return left;
+         }
+         //p q分散在两边
+         return root;
+     }
+}
+```
+
