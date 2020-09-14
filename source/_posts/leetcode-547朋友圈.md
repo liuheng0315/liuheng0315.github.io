@@ -1,7 +1,12 @@
 ---
 title: leetcode-547.朋友圈
 date: 2020-09-10 17:01:16
-tags:
+categories: 
+		- leetcode
+tags: 
+	- leetcode
+cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
+typora-root-url: ..
 ---
 
 [leetcode-547.朋友圈](https://leetcode-cn.com/problems/friend-circles/)
