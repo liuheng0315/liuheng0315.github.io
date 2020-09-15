@@ -1,5 +1,5 @@
 ---
-title: leetcode-714买卖股票的最佳时机含手续费
+title: leetcode-714.买卖股票的最佳时机含手续费
 date: 2020-09-15 21:11:57
 categories: 
 		- leetcode

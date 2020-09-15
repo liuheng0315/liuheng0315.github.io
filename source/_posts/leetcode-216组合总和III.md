@@ -1,5 +1,5 @@
 ---
-title: leetcode-216组合总和III
+title: leetcode-216.组合总和III
 categories: 
 		- leetcode
 tags: 

@@ -1,7 +1,12 @@
 ---
-title: leetcode-309最佳买卖股票时机含冷冻期
+title: leetcode-309.最佳买卖股票时机含冷冻期
 date: 2020-09-15 17:26:05
-tags:
+categories: 
+		- leetcode
+tags: 
+	- leetcode
+cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
+typora-root-url: ..
 ---
 
 #### [leetcode-309. 最佳买卖股票时机含冷冻期](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
