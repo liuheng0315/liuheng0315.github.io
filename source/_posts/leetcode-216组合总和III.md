@@ -8,7 +8,7 @@ cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
 typora-root-url: ..
 ---
 
-[leetcode-216组合总和III](https://leetcode-cn.com/problems/combination-sum-iii/)
+[leetcode-216.组合总和III](https://leetcode-cn.com/problems/combination-sum-iii/)
 
 ```java
 class Solution {

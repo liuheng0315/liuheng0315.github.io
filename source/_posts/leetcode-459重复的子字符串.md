@@ -1,5 +1,5 @@
 ---
-title: leetcode-459重复的子字符串
+title: leetcode-459.重复的子字符串
 date: 2020-09-11 12:34:20
 categories: 
 		- leetcode
@@ -9,7 +9,7 @@ cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
 typora-root-url: ..
 ---
 
-[leetcode-459重复的子字符串](https://leetcode-cn.com/problems/repeated-substring-pattern/)
+[leetcode-459.重复的子字符串](https://leetcode-cn.com/problems/repeated-substring-pattern/)
 
 ```java
 class Solution {
