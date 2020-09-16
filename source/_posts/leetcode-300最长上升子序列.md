@@ -19,7 +19,7 @@ class Solution {
             return 0;
         }
 
-        // 定义dp数组,每个数组都可以选择选与不选
+        // 定义dp数组
         int[] dp = new int[n];
         // 初始化dp
         for (int i = 0; i < n; i++) {
