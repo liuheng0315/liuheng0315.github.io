@@ -11,22 +11,6 @@ typora-root-url: ..
 
 [acwing-850. Dijkstra求最短路 II](https://www.acwing.com/solution/content/6291/)
 
-输入范例
-
-5 10
-5 3 4
-2 4 9
-3 4 8
-1 3 3
-5 3 5
-2 5 5
-2 1 3
-5 4 3
-3 4 3
-1 3 2
-
-result : -1
-
 ```java
 import java.util.*;
 class Main{
