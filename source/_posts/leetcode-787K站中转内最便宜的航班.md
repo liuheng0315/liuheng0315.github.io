@@ -69,3 +69,71 @@ class Solution {
     }
 }
 ```
+<<<<<<< HEAD
+=======
+
+
+
+**dijkstra堆优化版算法**
+
+```java
+class Solution {
+    // 定义图的邻接表
+    int inf = 1000000000;
+    int n = 100000;
+    int[] e = new int[n];
+    int[] w = new int[n];
+    int[] ne = new int[n];
+    int[] h = new int[n];
+    int index = 0;
+    
+    // 定义存储最短的数组、节点是否访问
+    int[] dist = new int[n];
+    boolean[] bool = new boolean[n];
+    
+    int count = 0;
+    
+    public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
+    	// 将数据读入图
+        for(int[] flight: flights){
+            e[index] = flight[1];
+            w[index] = flight[2];
+            ne[index] = h;
+            h[flight[0]] = idx ++;
+        }
+        
+        // 初始化距离
+        Arrays.fill(dist, inf);
+        
+        // 定义一个最小堆,点到起点的距离
+        PriorityQueue<int[]> queue = new PriorityQueue<>((o1, o2)->{
+            return o1[2] - o2[2];
+        });
+        
+        // 加入初始值
+        queue.offer(new int[]{src, 0});
+        while(queue.size() > 0){
+            int[] arr = queue.poll();
+            int t = arr[0];
+            int distance = arr[1];
+            count ++;
+            if(bool[t] || count > K + 1){
+                continue;
+            }
+            bool[t] = true;
+            for(int i = h[t]; i != -1; i = ne[i]){
+                int j = e[i];
+                if(dist[j] > dist[i] + w[i]){
+                    dist[j] = distance + w[i];
+                    // 进行入队
+                    queue.offer(new int[]{j, dist[j]});
+                }
+            }
+        }
+        
+        return dist[dst];
+    }
+}
+```
+
+>>>>>>> 1e1a063b2ed2902f22f9c10fe1fce8bce47a145d
