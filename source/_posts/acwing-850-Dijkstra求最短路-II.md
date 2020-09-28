@@ -28,7 +28,7 @@ class Main{
     static int idx = 0;
     // 构造一个最小堆得优先队列,存储的数组代表起点到结点的距离
     static PriorityQueue<int[]> queue = new PriorityQueue<>((o1, o2)->{
-        return o2[1] - o1[1];
+        return o1[1] - o2[1];
     });
     
     public static void main(String[] args){

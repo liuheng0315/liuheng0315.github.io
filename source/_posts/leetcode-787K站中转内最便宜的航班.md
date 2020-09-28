@@ -88,6 +88,9 @@ class Solution {
     // 定义存储最短的数组、节点是否访问
     int[] dist = new int[n];
     boolean[] bool = new boolean[n];
+    
+    int count = 0;
+    
     public int findCheapestPrice(int n, int[][] flights, int src, int dst, int K) {
     	// 将数据读入图
         for(int[] flight: flights){
@@ -111,7 +114,8 @@ class Solution {
             int[] arr = queue.poll();
             int t = arr[0];
             int distance = arr[1];
-            if(bool[t]){
+            count ++;
+            if(bool[t] || count > K + 1){
                 continue;
             }
             bool[t] = true;
