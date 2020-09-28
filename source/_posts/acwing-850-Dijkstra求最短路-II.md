@@ -9,13 +9,13 @@ cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
 typora-root-url: ..
 ---
 
-[acwing-850. Dijkstra求最短路 II](https://www.acwing.com/solution/content/6291/)
+[acwing-850. Dijkstra求最短路 II](https://www.acwing.com/problem/content/description/852/)
 
 ```java
 import java.util.*;
 class Main{
     // 定义最大数用于初始化数组
-    static int N = 150010;
+    static int N = 1000010;
     // 定义邻结表 h存储边头结点(即一个边节点的index)，e存储边结点，w存储边的权值，ne存储下一个边结点，
     static int[] h = new int[N];
     static int[] e = new int[N];
@@ -28,7 +28,7 @@ class Main{
     static int idx = 0;
     // 构造一个最小堆得优先队列,存储的数组代表起点到结点的距离
     static PriorityQueue<int[]> queue = new PriorityQueue<>((o1, o2)->{
-        return o2[1] - o1[1];
+        return o1[1] - o2[1];
     });
     
     public static void main(String[] args){
@@ -44,12 +44,12 @@ class Main{
            	add(a, b, c);
         }
         int result = dijstra(n);
-        System.out.println(result == 100000000 ? -1 : result);
+        System.out.println(result == 1000000000 ? -1 : result);
     }
     
     public static int dijstra(int n){
         //初始化距离
-        Arrays.fill(dist, 100000000);
+        Arrays.fill(dist, 1000000000);
         //初始化第一个节点到自身的距离
         dist[1] = 0;
         //往堆中push第一个元素
