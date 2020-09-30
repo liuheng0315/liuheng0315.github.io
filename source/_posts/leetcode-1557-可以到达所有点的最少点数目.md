@@ -1,7 +1,12 @@
 ---
 title: leetcode-1557. 可以到达所有点的最少点数目
 date: 2020-09-28 18:05:08
-tags:
+categories: 
+		- leetcode
+tags: 
+	- leetcode
+cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
+typora-root-url: ..
 ---
 
 #### [leetcode-1557. 可以到达所有点的最少点数目](https://leetcode-cn.com/problems/minimum-number-of-vertices-to-reach-all-nodes/)

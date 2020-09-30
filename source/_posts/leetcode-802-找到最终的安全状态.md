@@ -1,7 +1,12 @@
 ---
 title: leetcode-802. 找到最终的安全状态
 date: 2020-09-28 12:52:47
-tags:
+categories: 
+		- leetcode
+tags: 
+	- leetcode
+cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
+typora-root-url: ..
 ---
 
 #### [leetcode-802. 找到最终的安全状态](https://leetcode-cn.com/problems/find-eventual-safe-states/)

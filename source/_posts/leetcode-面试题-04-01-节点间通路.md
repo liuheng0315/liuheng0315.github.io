@@ -14,7 +14,6 @@ typora-root-url: ..
 ```java
 class Solution {
     List<Set<Integer>> g = new ArrayList<>();
-    Set<Integer> set = new HashSet<>();
     public boolean findWhetherExistsPath(int n, int[][] graph, int start, int target) {
         for (int i = 0; i < n; i++) {
             g.add(new HashSet<Integer>());
@@ -28,7 +27,6 @@ class Solution {
         return dfs(n, start, start, target);
     }
 
-    // 1表示该点已经找过了但没找到
     public boolean dfs(int n, int cur, int start, int target) {
         if (cur == target) {
             return true;
@@ -36,15 +34,14 @@ class Solution {
 
         //遍历邻接矩阵
         for (Integer i: g.get(cur)) {
-            set.add(i);
             boolean bool = dfs(n, i, start, target);
             if (bool) {
                 return true;
             }
-            set.remove(i);
         }
         return false;
     }
 }
+
 ```
 
