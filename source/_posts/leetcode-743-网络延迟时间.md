@@ -224,5 +224,66 @@ class Solution {
 
 
 
+**Bellman-ford算法**
 
+```java
+class Solution {
+    // 使用bellman-ford算法
+    int N = 10000;
+    Graph[] g = new Graph[N];
+    int[] dist = new int[N];
+    public int networkDelayTime(int[][] times, int N, int K) {
+        int m = times.length;
+        // 读入图数据
+        for(int i = 0; i < times.length; i++){
+            int a = times[i][0];
+            int b = times[i][1];
+            int c = times[i][2];
+            g[i] = new Graph(a, b, c);
+        }
+
+        bellman(g, N, K, m);
+
+        int result = Integer.MIN_VALUE;
+        for(int i = 1; i <= N; i++){
+            result = Math.max(result, dist[i]);
+        }
+
+        return result == 1000000000 ? -1 : result;
+    }
+
+    public void bellman(Graph[] g, int N, int K, int m){
+        // 初始化边距
+        Arrays.fill(dist, 1000000000);
+
+        // 从K点出发,所以dist[K] = 0;
+        dist[K] = 0;
+
+        // 最多进行N-1次边松弛
+        for(int i = 1; i < N; i++){
+            // 每次使用上一次的结果进行计算,避免数据串联
+            int[] copy = Arrays.copyOf(dist, dist.length);
+            // 每次遍历所有边
+            for(int j = 0; j < m; j++){
+                int a = g[j].a;
+                int b = g[j].b;
+                int c = g[j].c;
+                dist[b] = Math.min(dist[b], copy[a]+c);
+            }
+        }
+    }
+}
+
+// 定义一个储存图数据的结构
+class Graph{
+    public int a;
+    public int b;
+    public int c;
+    public Graph(int a,int b, int c){
+        this.a = a;
+        this.b = b;
+        this.c = c;
+    }
+}
+```
 
