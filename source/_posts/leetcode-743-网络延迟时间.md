@@ -287,3 +287,82 @@ class Graph{
 }
 ```
 
+
+
+**spfa算法**
+
+```java
+class Solution {
+    // 使用spfa算法
+    int N = 10000;
+    //定义邻接表
+    int[] e = new int[N];
+    int[] w = new int[N];
+    int[] ne = new int[N];
+    int[] h = new int[N];
+    int idx = 0;
+
+    int[] dist = new int[N];
+    // st表示是否在队列中
+    boolean[] st = new boolean[N];
+    LinkedList<Integer> queue = new LinkedList<>();
+
+    public int networkDelayTime(int[][] times, int N, int K) {
+        // 初始化头结点h
+        Arrays.fill(h, -1);
+        //读入数据
+        for(int i = 0; i < times.length; i++){
+            int a = times[i][0];
+            int b = times[i][1];
+            int c = times[i][2];
+            add(a, b, c); 
+        }
+
+        // spfa算法
+        spfa(K);
+
+        int result = Integer.MIN_VALUE;
+        for(int i = 1; i <= N; i++){
+            result = Math.max(result, dist[i]);
+        }
+        return result == 1000000000 ? -1 : result;
+    }
+
+    public void spfa(int K){
+        //初始化距离
+        Arrays.fill(dist, 1000000000);
+
+        dist[K] = 0;
+
+        // 将K点加入队列中
+        queue.offer(K);
+        // K已经存在队列中
+        st[K] = true;
+
+        while(!queue.isEmpty()){
+            int t = queue.poll();
+            st[t] = false;
+
+            // 更新t点相关联的所有边
+            for(int i = h[t]; i != -1; i = ne[i]){
+                int j = e[i];
+                if(dist[j] > dist[t] + w[i]){
+                    dist[j] = dist[t] + w[i];
+                    if(!st[j]){
+                        queue.offer(j);
+                        st[j] = true;
+                    }
+                }
+            }
+        }
+    }
+
+    public void add(int a, int b, int c){
+        e[idx] = b;
+        w[idx] = c;
+        ne[idx] = h[a];
+        h[a] = idx++;
+    }
+}
+```
+
