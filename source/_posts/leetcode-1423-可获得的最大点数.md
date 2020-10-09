@@ -62,3 +62,25 @@ class Solution {
 
 
 
+**前缀和解法**
+
+```java
+class Solution {
+    public int maxScore(int[] cardPoints, int k) {
+        int n = cardPoints.length;
+        int[] s = new int[n+1];
+
+        for(int i = 1; i <= n; i++){
+            s[i] = s[i-1] + cardPoints[i-1];
+        }
+
+        int result = 0;
+        //一共取k次,则左边取i次,右边取k-i次
+        for(int i = 0; i <= k; i++){
+            result = Math.max(result,s[i]+s[n]-s[n-k+i]);
+        }
+        return result;
+    }
+}
+```
+
