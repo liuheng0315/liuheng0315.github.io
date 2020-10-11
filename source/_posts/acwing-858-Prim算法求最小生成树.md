@@ -1,7 +1,12 @@
 ---
 title: acwing- 858. Prim算法求最小生成树
 date: 2020-09-30 12:45:15
-tags:
+categories: 
+		- 算法
+tags: 
+	- 图论
+cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
+typora-root-url: ..
 ---
 
 [acwing- 858. Prim算法求最小生成树](https://www.acwing.com/activity/content/code/content/48767/)
