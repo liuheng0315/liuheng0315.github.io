@@ -12,7 +12,7 @@ typora-root-url: ..
 
 ### 问题概览
 
-1. 生成者往Broker上发送消息的底层原理
+1. 生产者往Broker上发送消息的底层原理
 2. Broker接受到消息后是如何储存到磁盘的？
 3. 基于DLedger技术部署的Broker高可用集群是如何进行数据同步的？
 4. 消费者是基于什么策略选择Master或Slaver拉取数据的？
@@ -20,7 +20,7 @@ typora-root-url: ..
 
 ### 数据分片机制及消息是如何发送给Broker？
 
-**创建Topic的时候为什么需要制定MessageQueue数量？**
+**创建Topic的时候为什么需要指定MessageQueue数量？**
 
 ​	MessageQueue是RocketMQ中很重要的一个数据分片机制，它将一个Topic的数据拆分成很多个数据分片，然后在每一个Broker机器上存储一些MessageQueue
 
