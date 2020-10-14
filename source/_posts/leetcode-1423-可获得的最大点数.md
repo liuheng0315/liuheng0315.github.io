@@ -9,9 +9,9 @@ cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
 typora-root-url: ..
 ---
 
-#### [leetcode-142. 环形链表 II](https://leetcode-cn.com/problems/linked-list-cycle-ii/)
+#### [leetcode-1423. 可获得的最大点数](https://leetcode-cn.com/problems/maximum-points-you-can-obtain-from-cards/)
 
-**使用滑动数组**
+#### **使用滑动数组**
 
 ```java
 class Solution {
