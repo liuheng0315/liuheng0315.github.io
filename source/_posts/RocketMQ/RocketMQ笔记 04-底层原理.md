@@ -80,7 +80,7 @@ typora-root-url: ..
 
 **Dledger如何实现Broker多副本高可用？**
 
-​	基于Dledger技术替换Broker的CommitLog，Dledger技术有他自己的CommitLog机制，基于Dledger技术实现Broker技术实现Broker高可用架构，实际上就是用Dledger先替换掉Broker自己管理的CommitLog，由Dlegger来管理CommitLog，然后Broker还可以基于Dledger管理的CommitLog构建出机器上的各个ConsumeQueue磁盘文件。
+​	基于Dledger技术替换Broker的CommitLog，Dledger技术有他自己的CommitLog机制，基于Dledger技术实现Broker高可用架构，实际上就是用Dledger先替换掉Broker自己管理的CommitLog，由Dlegger来管理CommitLog，然后Broker还可以基于Dledger管理的CommitLog构建出机器上的各个ConsumeQueue磁盘文件。
 
 <img src="/images/Dledger.png" alt="Dledger" style="zoom:67%;" />
 
