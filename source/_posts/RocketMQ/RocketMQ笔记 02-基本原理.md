@@ -5,7 +5,7 @@ categories: 消息中间件
 tags:
 	- RocketMQ
 cover: https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2582113194,968310573&fm=26&gp=0.jpg
-typora-root-url: ..
+typora-root-url: ../..
 ---
 
 ## RocketMQ基本原理
