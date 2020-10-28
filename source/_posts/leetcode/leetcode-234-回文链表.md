@@ -1,7 +1,12 @@
 ---
 title: leetcode-234. 回文链表
 date: 2020-10-23 09:21:29
-tags:
+categories: 
+		- leetcode
+tags: 
+	- leetcode
+cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
+typora-root-url: ..
 ---
 
 #### [leetcode-234. 回文链表](https://leetcode-cn.com/problems/palindrome-linked-list/)

@@ -1,7 +1,12 @@
 ---
 title: leetcode-474. 一和零
 date: 2020-10-21 22:42:57
-tags:
+categories: 
+		- leetcode
+tags: 
+	- leetcode
+cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
+typora-root-url: ..
 ---
 
 #### [leetcode-474. 一和零](https://leetcode-cn.com/problems/ones-and-zeroes/)
