@@ -3,7 +3,8 @@ title: JVM笔记-03垃圾回收机制
 date: 2020-11-02 09:08:34
 tags:
 	- jvm
-categories: JVM
+categories: 
+	- JVM
 cover: https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1520500758,409058955&fm=26&gp=0.jpg
 typora-root-url: ../..
 ---

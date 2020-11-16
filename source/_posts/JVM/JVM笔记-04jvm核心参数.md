@@ -3,7 +3,8 @@ title: JVM笔记-04jvm核心参数
 date: 2020-11-02 20:38:34
 tags:
 	- jvm
-categories: JVM
+categories: 
+	- JVM
 cover: https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1520500758,409058955&fm=26&gp=0.jpg
 typora-root-url: ../..
 ---

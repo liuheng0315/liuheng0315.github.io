@@ -4,7 +4,7 @@ categories:
 		- leetcode
 tags: 
 	- leetcode
-cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
+cover: images/leetcode.jpg
 typora-root-url: ..
 ---
 
