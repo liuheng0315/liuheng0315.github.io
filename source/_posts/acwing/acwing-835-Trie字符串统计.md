@@ -5,7 +5,7 @@ categories:
 		- 算法
 tags: 
 	- Trie树
-cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
+cover: images/leetcode.jpg
 typora-root-url: ..
 ---
 

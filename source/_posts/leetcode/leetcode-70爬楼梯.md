@@ -5,8 +5,8 @@ categories:
 		- leetcode
 tags: 
 	- leetcode
-cover: https://i.loli.net/2020/09/01/oT6hnNGz4idbgCU.jpg
-typora-root-url: ..
+cover: images/leetcode.jpg
+typora-root-url: ../..
 ---
 
 [leetcode-70.爬楼梯](https://leetcode-cn.com/problems/climbing-stairs/)
