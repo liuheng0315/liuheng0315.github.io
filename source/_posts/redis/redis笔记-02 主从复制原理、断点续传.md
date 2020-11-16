@@ -1,7 +1,8 @@
 ---
 title: redis笔记-02 主从复制原理、断点续传
 date: 2020-11-09 23:03:17
-categories: redis
+categories: 
+	- redis
 tags:
 	- redis
 cover: https://i.loli.net/2020/11/03/scvTDVpALmeW8of.jpg

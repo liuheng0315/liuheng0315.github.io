@@ -1,7 +1,8 @@
 ---
 title: redis笔记-04 redis异步复制、集群脑裂.md
 date: 2020-11-12 23:03:17
-categories: redis
+categories: 
+	- redis
 tags:
 	- redis
 cover: https://i.loli.net/2020/11/03/scvTDVpALmeW8of.jpg

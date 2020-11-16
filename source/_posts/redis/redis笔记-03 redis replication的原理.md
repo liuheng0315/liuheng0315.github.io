@@ -1,7 +1,8 @@
 ---
 title: redis笔记-03 redis replication的原理.md
 date: 2020-11-10 23:03:17
-categories: redis
+categories: 
+	- redis
 tags:
 	- redis
 cover: https://i.loli.net/2020/11/03/scvTDVpALmeW8of.jpg

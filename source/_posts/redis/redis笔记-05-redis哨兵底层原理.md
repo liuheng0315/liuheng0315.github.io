@@ -1,6 +1,8 @@
 ---
 title: redis笔记-05 redis哨兵底层原理
 date: 2020-11-12 23:54:30
+categories: 
+	- redis
 tags:
 	- redis
 cover: https://i.loli.net/2020/11/03/scvTDVpALmeW8of.jpg

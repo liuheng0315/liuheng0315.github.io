@@ -1,7 +1,8 @@
 ---
 title: redis笔记-01 rdb和aof的工作流程
 date: 2020-11-03 23:03:17
-categories: redis
+categories: 
+	- redis
 tags:
 	- redis
 cover: https://i.loli.net/2020/11/03/scvTDVpALmeW8of.jpg
