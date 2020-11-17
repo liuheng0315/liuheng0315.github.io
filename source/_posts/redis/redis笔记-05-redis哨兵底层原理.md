@@ -5,7 +5,7 @@ categories:
 	- redis
 tags:
 	- redis
-cover: https://i.loli.net/2020/11/03/scvTDVpALmeW8of.jpg
+cover: /images/redis.jpg
 typora-root-url: ../..
 ---
 

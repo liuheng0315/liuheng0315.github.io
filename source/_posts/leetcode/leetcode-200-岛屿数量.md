@@ -5,7 +5,7 @@ categories:
 		- leetcode
 tags: 
 	- leetcode
-cover: images/leetcode.jpg
+cover: /images/leetcode.jpg
 typora-root-url: .
 ---
 

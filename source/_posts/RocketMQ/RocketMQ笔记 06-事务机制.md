@@ -4,7 +4,7 @@ date: 2020-08-27 11:57:23
 categories: 消息中间件
 tags:
 	- RocketMQ
-cover: https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2582113194,968310573&fm=26&gp=0.jpg
+cover: /images/mq.jpg
 typora-root-url: ../..
 ---
 

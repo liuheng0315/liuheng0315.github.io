@@ -20,7 +20,7 @@ menu:
 # Code Blocks (代碼相關)
 # --------------------------------------
 
-highlight_theme: light # default / darker / pale night / light / ocean / mac / mac light / false
+highlight_theme: mac light # default / darker / pale night / light / ocean / mac / mac light / false
 highlight_copy: true # copy button
 highlight_lang: true # show the code language
 highlight_shrink: false # true: shrink the code blocks / false: expand the code blocks | none: expand code blocks and hide the button
@@ -92,21 +92,21 @@ avatar:
   effect: false
 
 # the banner image of home page
-index_img: https://i.loli.net/2020/08/17/xkIA61LFQwvy7EU.jpg
+index_img: /images/background.jpg
 
 # if the banner of page not setting, it will show the top_img
-default_top_img: https://i.loli.net/2020/08/17/xkIA61LFQwvy7EU.jpg
+default_top_img: /images/background.jpg
 
 # the banner image of archive page
-archive_img: https://i.loli.net/2020/08/17/Bi4uAnz5E2bTydR.jpg
+archive_img: /images/background.jpg
 
 # the banner image of tag page
 # note: tag page, not tags page (子標籤頁面的 top_img)
-tag_img: https://i.loli.net/2020/08/17/Bi4uAnz5E2bTydR.jpg
+tag_img: /images/background.jpg
 
 # the banner image of category page
 # note: category page, not categories page (子分類頁面的 top_img)
-category_img: https://i.loli.net/2020/08/17/Bi4uAnz5E2bTydR.jpg
+category_img: /images/background.jpg
 
 # If you are using hexo-douban, you can configure it (如果你有使用 hexo-douban,可配置這個)
 # douban:
@@ -202,7 +202,7 @@ photofigcaption: false
 
 # anchor
 # when you scroll in post, the URL will update according to header id.
-anchor: false
+anchor: true
 
 # Displays outdated notice for a post (文章過期提醒)
 noticeOutdate:
@@ -458,9 +458,9 @@ theme_color:
 # The top_img settings of home page
 # default: top img - full screen, site info - middle (默認top_img全屏，site_info在中間)
 # The position of site info, eg: 300px/300em/300rem/10% (主頁標題距離頂部距離)
-index_site_info_top:
+index_site_info_top: 10%
 # The height of top_img, eg: 300px/300em/300rem (主頁top_img高度)
-index_top_img_height:
+index_top_img_height: 300px
 
 # The user interface setting of category and tag page (category和tag頁的UI設置)
 # index - same as Homepage UI (index 值代表 UI將與首頁的UI一樣)
@@ -487,7 +487,7 @@ rightside-bottom:
 # canvas_ribbon (靜止彩帶背景)
 # See: https://github.com/hustcc/ribbon.js
 canvas_ribbon:
-  enable: false
+  enable: true
   size: 150
   alpha: 0.6
   zIndex: -1
@@ -496,7 +496,7 @@ canvas_ribbon:
 
 # Dynamic ribbon (動態彩帶)
 canvas_ribbon_piao:
-  enable: false
+  enable: true
   mobile: false
 
 # canvas_nest
@@ -539,7 +539,7 @@ display_mode: light
 
 # Beautify (美化頁面顯示)
 beautify:
-  enable: false
+  enable: true
   field: post # site/post
   title-prefix-icon: '\f0c1'
   title-prefix-icon-color: '#F47466'
