@@ -22,3 +22,9 @@ typora-root-url: ../..
 -XX:MaxPermsize  || -XX:MaxMetaspaceSize ：永久代最大大小
 
 -Xss ：每个线程的栈内存大小
+
+-XX:- HandlePromotionFailure:设置为true时，Minor GC会判断平均每个GC剩余的对象大小是否能放入永久代
+
+-XX:PretenureSizeThreshold：大对象直接进入老年代的阈值
+
+-XX:MaxTenuringThreshold：新生代进入老年代的年龄阈值
