@@ -5,7 +5,7 @@ categories:
 		- 算法
 tags: 
 	- Trie树
-cover: images/leetcode.jpg
+cover: /images/leetcode.jpg
 typora-root-url: ..
 ---
 

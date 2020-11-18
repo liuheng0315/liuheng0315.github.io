@@ -5,7 +5,7 @@ categories:
 		- 算法
 tags: 
 	- 排序算法
-cover: images/leetcode.jpg
+cover: /images/leetcode.jpg
 typora-root-url: ..
 ---
 
