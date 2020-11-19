@@ -28,3 +28,7 @@ typora-root-url: ../..
 -XX:PretenureSizeThreshold：大对象直接进入老年代的阈值
 
 -XX:MaxTenuringThreshold：新生代进入老年代的年龄阈值
+
+-XX:+UseParNewGC：新生代使用parNew垃圾回收器
+
+-XX:ParallelGCThreads：并行垃圾回收线程的数量，一般不建议修改这个参数
