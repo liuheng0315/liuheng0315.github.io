@@ -32,3 +32,19 @@ typora-root-url: ../..
 -XX:+UseParNewGC：新生代使用parNew垃圾回收器
 
 -XX:ParallelGCThreads：并行垃圾回收线程的数量，一般不建议修改这个参数
+
+-XX:G1HeapRegionSize：指定G1 region的大小
+
+-XX:G1NewSizePercent：指定G1新生代初始占比
+
+-XX:G1MaxNewSizePercen：指定G1新生代最大占比
+
+-XX:MaxGCPauseMills：G1执行GC时最多让系统停顿的时间
+
+-XX:InitiatingHeapOccupancyPercent：默认值是45%，G1老年代占据了堆内存的45%的Region的时候，此时就会尝试触发一个新生代+老年代一起回收的混合回收阶段
+
+-XX:G1MixedGCCountTarget：就是在一次混合回收的过程中，最后一个阶段执行几次混合回收，默认值是8次
+
+-XX:G1HeapWastePercent：G1混合回收的region达到这个设置的比例就停止混合回收
+
+-XX:G1MixedGCLiveThresholdPercent：默认值85%，G1回收region的时候，必须存活对象小于这个设定的值才能被回收

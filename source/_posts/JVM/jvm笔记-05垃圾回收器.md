@@ -1,5 +1,5 @@
 ---
-title: jvm笔记-05垃圾回收器
+title: JVM笔记-05垃圾回收器
 date: 2020-11-17 20:55:10
 tags:
 	- jvm
