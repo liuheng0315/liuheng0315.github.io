@@ -48,3 +48,9 @@ typora-root-url: ../..
 -XX:G1HeapWastePercent：G1混合回收的region达到这个设置的比例就停止混合回收
 
 -XX:G1MixedGCLiveThresholdPercent：默认值85%，G1回收region的时候，必须存活对象小于这个设定的值才能被回收
+
+-XX:+PrintGCDetils：打印详细的gc日志
+
+ -XX:+PrintGCTimeStamps：这个参数可以打印出来每次GC发生的时间 
+
+-Xloggc:gc.log：这个参数可以设置将gc日志写入一个磁盘文件
