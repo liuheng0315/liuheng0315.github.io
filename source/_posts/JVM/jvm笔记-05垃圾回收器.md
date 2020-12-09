@@ -93,6 +93,12 @@ typora-root-url: ../..
 
 
 
+#### 8G内存下CMS常用的JVM配置
+
+-Xms4096M -Xmx4096M -Xmn3072M -Xss1M -XX:PermSize=256M -XX:MaxPermSize=256M -XX:+UseParNewGC - XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFaction=92 -XX:+UseCMSCompactAtFullCollection - XX:CMSFullGCsBeforeCompaction=0 -XX:+CMSParallelInitialMarkEnabled -XX:+CMSScavengeBeforeRemark
+
+
+
 #### 思考
 
 1. ​	为什么老年代的垃圾回收速度会比新生代的垃圾回收速度慢很多倍？到 底慢在哪里？
