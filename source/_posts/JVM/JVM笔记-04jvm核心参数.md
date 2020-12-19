@@ -70,3 +70,7 @@ typora-root-url: ../..
 -Xloggc:gc.log：这个参数可以设置将gc日志写入一个磁盘文件
 
 -XX:+DisableExplicitGC：禁止显示执行GC
+
+-XX:+HeapDumpOnOutOfMemoryError：OOM时导出内存快照
+
+ -XX:HeapDumpPath=/usr/local/app/oom：OOM时导出内存快照地址
