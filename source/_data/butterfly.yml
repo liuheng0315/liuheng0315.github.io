@@ -88,7 +88,7 @@ favicon: /img/favicon.png
 
 # Avatar (頭像)
 avatar:
-  img: https://i.loli.net/2020/08/17/XBdJnt7aZSRC9l2.jpg
+  img: /images/avatar_1522993684.png
   effect: false
 
 # the banner image of home page
