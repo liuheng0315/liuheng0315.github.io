@@ -2,7 +2,7 @@
 title: acwing- 858. Prim算法求最小生成树
 date: 2020-09-30 12:45:15
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 图论
 cover: /images/leetcode.jpg

@@ -92,7 +92,7 @@ avatar:
   effect: false
 
 # the banner image of home page
-index_img: /images/background.jpg
+index_img: /images/docker.png
 
 # if the banner of page not setting, it will show the top_img
 default_top_img: /images/background.jpg

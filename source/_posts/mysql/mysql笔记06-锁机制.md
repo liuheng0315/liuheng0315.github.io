@@ -2,7 +2,7 @@
 title: mysql笔记06-锁机制
 date: 2021-01-13 09:09:52
 categories: 
-		- 数据库
+		- mysql
 tags: 
 	- mysql
 cover: https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=138264622,1709438672&fm=26&gp=0.jpg

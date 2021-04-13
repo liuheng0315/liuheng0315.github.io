@@ -2,8 +2,8 @@
 title: Spring Cloud
 date: 2020-08-31 15:10:03
 tags:
-	- Spring Cloud
-categories: Spring Cloud
+	- spring cloud
+categories: spring cloud
 cover: https://i.loli.net/2020/08/31/Cj41fWJFrhwe259.jpg
 ---
 

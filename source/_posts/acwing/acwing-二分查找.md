@@ -2,7 +2,7 @@
 title: acwing-二分查找
 date: 2020-09-09 22:05:44
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 二分查找
 cover: /images/leetcode.jpg

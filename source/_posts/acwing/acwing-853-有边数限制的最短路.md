@@ -2,7 +2,7 @@
 title: acwing-853. 有边数限制的最短路
 date: 2020-09-25 13:42:19
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 图论
 cover: /images/leetcode.jpg

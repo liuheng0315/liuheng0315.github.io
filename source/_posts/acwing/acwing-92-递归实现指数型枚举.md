@@ -2,7 +2,7 @@
 title: acwing-92. 递归实现指数型枚举
 date: 2021-04-01 13:53:27
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 递归
 cover: /images/leetcode.jpg

@@ -2,7 +2,7 @@
 title: acwing-850. Dijkstra求最短路 II
 date: 2020-09-23 23:01:32
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 图论
 cover: /images/leetcode.jpg

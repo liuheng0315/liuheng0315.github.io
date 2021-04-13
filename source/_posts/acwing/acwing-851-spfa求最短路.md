@@ -2,7 +2,7 @@
 title: acwing-851. spfa求最短路
 date: 2020-09-28 23:01:50
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 图论
 cover: /images/leetcode.jpg

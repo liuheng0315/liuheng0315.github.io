@@ -2,7 +2,7 @@
 title: mysql笔记04-redo log日志刷入磁盘流程
 date: 2021-01-05 09:12:25
 categories: 
-		- 数据库
+		- mysql
 tags: 
 	- mysql
 cover: https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=138264622,1709438672&fm=26&gp=0.jpg

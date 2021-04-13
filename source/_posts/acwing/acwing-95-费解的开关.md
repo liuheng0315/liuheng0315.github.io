@@ -2,7 +2,7 @@
 title: acwing-95. 费解的开关
 date: 2021-04-12 20:25:51
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 位运算
 cover: /images/leetcode.jpg

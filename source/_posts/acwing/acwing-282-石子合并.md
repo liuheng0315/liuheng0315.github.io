@@ -2,7 +2,7 @@
 title: acwing-282. 石子合并
 date: 2020-10-20 23:26:47
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 动态规划
 cover: /images/leetcode.jpg

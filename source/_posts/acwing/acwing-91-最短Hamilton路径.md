@@ -2,7 +2,7 @@
 title: acwing-91. 最短Hamilton路径
 date: 2021-04-01 11:53:14
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 位运算
 cover: /images/leetcode.jpg

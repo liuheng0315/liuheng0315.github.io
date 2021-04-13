@@ -1,7 +1,7 @@
 ---
 title: RocketMQ笔记 04-底层原理
 date: 2020-08-24 16:21:44
-categories: 消息中间件
+categories: MQ
 tags:
 	- RocketMQ
 cover: /images/mq.jpg

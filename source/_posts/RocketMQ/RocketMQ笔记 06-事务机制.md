@@ -1,7 +1,7 @@
 ---
 title: RocketMQ笔记 06-事务机制
 date: 2020-08-27 11:57:23
-categories: 消息中间件
+categories: MQ
 tags:
 	- RocketMQ
 cover: /images/mq.jpg

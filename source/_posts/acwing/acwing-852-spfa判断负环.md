@@ -2,7 +2,7 @@
 title: acwing-852. spfa判断负环
 date: 2020-09-28 23:22:09
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 图论
 cover: /images/leetcode.jpg

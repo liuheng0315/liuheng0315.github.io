@@ -2,7 +2,7 @@
 title: acwing-4. 多重背包问题 I
 date: 2020-09-20 23:19:02
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 动态规划
 cover: /images/leetcode.jpg

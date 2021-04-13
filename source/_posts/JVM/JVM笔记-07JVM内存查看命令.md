@@ -4,7 +4,7 @@ date: 2020-12-07 08:54:32
 tags:
 	- jvm
 categories: 
-	- JVM
+	- jvm
 cover: /images/jvm.jpg
 typora-root-url: ../..
 ---

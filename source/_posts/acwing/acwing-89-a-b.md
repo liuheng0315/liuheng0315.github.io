@@ -2,7 +2,7 @@
 title: acwing-89. a^b
 date: 2021-03-30 23:27:56
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 位运算
 cover: /images/leetcode.jpg

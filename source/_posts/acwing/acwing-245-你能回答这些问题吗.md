@@ -2,7 +2,7 @@
 title: acwing-245. 你能回答这些问题吗
 date: 2021-01-26 13:48:04
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 线段树
 cover: /images/leetcode.jpg

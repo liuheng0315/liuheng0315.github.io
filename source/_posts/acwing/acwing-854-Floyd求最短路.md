@@ -2,7 +2,7 @@
 title: acwing- 854. Floyd求最短路
 date: 2020-09-29 00:01:27
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 图论
 cover: /images/leetcode.jpg

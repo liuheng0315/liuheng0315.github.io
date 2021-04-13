@@ -2,7 +2,7 @@
 title: acwing-3. 完全背包问题
 date: 2020-09-18 09:57:08
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 背包问题
 cover: /images/leetcode.jpg

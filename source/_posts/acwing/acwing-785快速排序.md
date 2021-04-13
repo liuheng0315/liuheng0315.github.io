@@ -2,7 +2,7 @@
 title: acwing-785.快速排序
 date: 2020-09-07 22:53:34
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 排序算法
 cover: /images/leetcode.jpg

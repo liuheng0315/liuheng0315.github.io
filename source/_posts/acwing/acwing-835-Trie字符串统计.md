@@ -2,7 +2,7 @@
 title: acwing-835. Trie字符串统计
 date: 2020-10-20 13:58:15
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- Trie树
 cover: /images/leetcode.jpg

@@ -2,7 +2,7 @@
 title: acwing-2. 01背包问题
 date: 2020-09-17 23:13:50
 categories: 
-		- 算法
+		- algorithm
 tags: 
 	- 动态规划
 cover: /images/leetcode.jpg

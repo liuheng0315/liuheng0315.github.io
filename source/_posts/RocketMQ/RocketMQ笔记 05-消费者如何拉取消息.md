@@ -1,7 +1,7 @@
 ---
 title: RocketMQ笔记 05-消费者如何拉取消息
 date: 2020-08-27 10:59:26
-categories: 消息中间件
+categories: MQ
 tags:
 	- RocketMQ
 cover: /images/mq.jpg
