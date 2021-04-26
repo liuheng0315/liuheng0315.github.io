@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>git笔记-关联远程仓库</title>
+      <link href="/2021/04/26/git/git%E7%AC%94%E8%AE%B0-%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/"/>
+      <url>/2021/04/26/git/git%E7%AC%94%E8%AE%B0-%E5%85%B3%E8%81%94%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>git关联远程项目步骤：</p><p>git init</p><p>git remote add origin <a href="https://gitee.com/ZhongHuaShiShan/eshop.git">https://gitee.com/ZhongHuaShiShan/eshop.git</a></p><p>git fetch origin</p><p>git branch --set-upstream-to=origin/master master</p><p>git pull origin master --allow-unrelated-histories</p><p>git push -u origin master</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> git </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> git </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode-1011. 在 D 天内送达包裹的能力</title>
       <link href="/2021/04/26/leetcode/leetcode-1011-%E5%9C%A8-D-%E5%A4%A9%E5%86%85%E9%80%81%E8%BE%BE%E5%8C%85%E8%A3%B9%E7%9A%84%E8%83%BD%E5%8A%9B/"/>
       <url>/2021/04/26/leetcode/leetcode-1011-%E5%9C%A8-D-%E5%A4%A9%E5%86%85%E9%80%81%E8%BE%BE%E5%8C%85%E8%A3%B9%E7%9A%84%E8%83%BD%E5%8A%9B/</url>
