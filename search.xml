@@ -4,6 +4,56 @@
   
     
     <entry>
+      <title>leetcode-1310. 子数组异或查询</title>
+      <link href="/2021/05/12/leetcode/leetcode-1310-%E5%AD%90%E6%95%B0%E7%BB%84%E5%BC%82%E6%88%96%E6%9F%A5%E8%AF%A2/"/>
+      <url>/2021/05/12/leetcode/leetcode-1310-%E5%AD%90%E6%95%B0%E7%BB%84%E5%BC%82%E6%88%96%E6%9F%A5%E8%AF%A2/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="1310-子数组异或查询"><a class="markdownIt-Anchor" href="#1310-子数组异或查询"></a> <a href="https://leetcode-cn.com/problems/xor-queries-of-a-subarray/">1310. 子数组异或查询</a></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span>[] xorQueries(<span class="keyword">int</span>[] arr, <span class="keyword">int</span>[][] queries) &#123;</span><br><span class="line">        <span class="keyword">int</span> n = arr.length;</span><br><span class="line">        <span class="keyword">int</span>[] s = <span class="keyword">new</span> <span class="keyword">int</span>[n+<span class="number">1</span>];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; i++)&#123;</span><br><span class="line">            s[i] = s[i-<span class="number">1</span>] ^ arr[i-<span class="number">1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span>[] ans = <span class="keyword">new</span> <span class="keyword">int</span>[queries.length];</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; queries.length ; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span>[] tmp = queries[i];</span><br><span class="line">            <span class="keyword">int</span> a = tmp[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> b = tmp[<span class="number">1</span>];</span><br><span class="line">            ans[i] = s[b+<span class="number">1</span>] ^ s[a];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> leetcode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>spring cloud-01 eureka</title>
+      <link href="/2021/05/10/springCloud/spring-cloud-01-eureka/"/>
+      <url>/2021/05/10/springCloud/spring-cloud-01-eureka/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>eureka笔记</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> spring cloud </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> eureka </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode-1720. 解码异或后的数组</title>
       <link href="/2021/05/06/leetcode/leetcode-1720-%E8%A7%A3%E7%A0%81%E5%BC%82%E6%88%96%E5%90%8E%E7%9A%84%E6%95%B0%E7%BB%84/"/>
       <url>/2021/05/06/leetcode/leetcode-1720-%E8%A7%A3%E7%A0%81%E5%BC%82%E6%88%96%E5%90%8E%E7%9A%84%E6%95%B0%E7%BB%84/</url>
@@ -5934,8 +5984,8 @@
     
     <entry>
       <title>Spring Cloud</title>
-      <link href="/2020/08/31/Spring%20Cloud/"/>
-      <url>/2020/08/31/Spring%20Cloud/</url>
+      <link href="/2020/08/31/springCloud/Spring%20Cloud/"/>
+      <url>/2020/08/31/springCloud/Spring%20Cloud/</url>
       
         <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>第一：微服务注册中心的注册表如何更好的防止读写并发冲突？<br />第二：Eureka注册表多级缓存架构有了解过吗？<br />第三：Nacos如何支撑阿里巴巴内部上百万服务实例的访问？<br />第四：Nacos高并发异步注册架构知道如何设计的吗？<br />第五：Sentinel底层滑动时间窗限流算法怎么实现的？<br />第六：Sentinel底层是如何计算线上系统实时QPS的？<br />第七：Seata分布式事务回滚机制如何实现的？<br />第八：Nacos集群CP架构底层类Raft协议怎么实现的？<br />第九：Nacos&amp;Eureka&amp;Zookeeper集群架构都有脑裂问题吗？<br />第十：如何设计能支撑全世界公司使用的微服务云架构？</p>]]></content>
       
