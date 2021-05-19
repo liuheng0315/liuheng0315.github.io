@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>leetcode-785. 判断二分图</title>
+      <link href="/2021/05/19/leetcode-785-%E5%88%A4%E6%96%AD%E4%BA%8C%E5%88%86%E5%9B%BE/"/>
+      <url>/2021/05/19/leetcode-785-%E5%88%A4%E6%96%AD%E4%BA%8C%E5%88%86%E5%9B%BE/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="785-判断二分图"><a class="markdownIt-Anchor" href="#785-判断二分图"></a> <a href="https://leetcode-cn.com/problems/is-graph-bipartite/">785. 判断二分图</a></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isBipartite</span><span class="params">(<span class="keyword">int</span>[][] graph)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 二分图、染色法判别</span></span><br><span class="line">        <span class="keyword">int</span> n = graph.length;</span><br><span class="line">        <span class="keyword">int</span>[] color = <span class="keyword">new</span> <span class="keyword">int</span>[n];</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 将每个节点都染色一遍</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(color[i] == <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="comment">//如果该节点没有被染色</span></span><br><span class="line">                color[i] = <span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(!dfs(i, <span class="number">0</span>, graph, color))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">dfs</span><span class="params">(<span class="keyword">int</span> cur, <span class="keyword">int</span> k, <span class="keyword">int</span>[][] graph, <span class="keyword">int</span>[] color)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = k; i &lt; graph[cur].length; i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> next = graph[cur][i];</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(color[next] == <span class="number">0</span>)&#123;</span><br><span class="line">                <span class="comment">// 没有被染色</span></span><br><span class="line">                color[next] = <span class="number">3</span> - color[cur];</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(color[next] == color[cur])&#123;</span><br><span class="line">                <span class="comment">// 染色冲突</span></span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="comment">// 已经被染色并且不冲突</span></span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span>(!dfs(next, <span class="number">0</span>, graph, color))&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> leetcode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode-1734. 解码异或后的排列</title>
       <link href="/2021/05/12/leetcode/leetcode-1734-%E8%A7%A3%E7%A0%81%E5%BC%82%E6%88%96%E5%90%8E%E7%9A%84%E6%8E%92%E5%88%97/"/>
       <url>/2021/05/12/leetcode/leetcode-1734-%E8%A7%A3%E7%A0%81%E5%BC%82%E6%88%96%E5%90%8E%E7%9A%84%E6%8E%92%E5%88%97/</url>
@@ -55,10 +80,10 @@
     
     <entry>
       <title>spring cloud-01 eureka</title>
-      <link href="/2021/05/10/springCloud/spring-cloud-01-eureka/"/>
-      <url>/2021/05/10/springCloud/spring-cloud-01-eureka/</url>
+      <link href="/2021/05/10/springCloud/eureka/spring-cloud-01-eureka/"/>
+      <url>/2021/05/10/springCloud/eureka/spring-cloud-01-eureka/</url>
       
-        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>eureka笔记</p>]]></content>
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>eureka源码笔记</p>]]></content>
       
       
       <categories>
