@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>mathType转latex-使用java调用go</title>
+      <link href="/2021/06/29/work/mathType%E8%BD%AClatex-%E4%BD%BF%E7%94%A8java%E8%B0%83%E7%94%A8go/"/>
+      <url>/2021/06/29/work/mathType%E8%BD%AClatex-%E4%BD%BF%E7%94%A8java%E8%B0%83%E7%94%A8go/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="mathtype转latex-使用java调用go"><a class="markdownIt-Anchor" href="#mathtype转latex-使用java调用go"></a> mathType转latex-使用java调用go</h2><h3 id="背景"><a class="markdownIt-Anchor" href="#背景"></a> 背景</h3><h3 id="方案探索"><a class="markdownIt-Anchor" href="#方案探索"></a> 方案探索</h3><h3 id="解决方案"><a class="markdownIt-Anchor" href="#解决方案"></a> 解决方案</h3><h3 id="困难点"><a class="markdownIt-Anchor" href="#困难点"></a> 困难点</h3><h3 id="总结"><a class="markdownIt-Anchor" href="#总结"></a> 总结</h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> work </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> mathType </tag>
+            
+            <tag> go </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>leetcode-852. 山脉数组的峰顶索引</title>
+      <link href="/2021/06/16/leetcode/leetcode-852-%E5%B1%B1%E8%84%89%E6%95%B0%E7%BB%84%E7%9A%84%E5%B3%B0%E9%A1%B6%E7%B4%A2%E5%BC%95/"/>
+      <url>/2021/06/16/leetcode/leetcode-852-%E5%B1%B1%E8%84%89%E6%95%B0%E7%BB%84%E7%9A%84%E5%B3%B0%E9%A1%B6%E7%B4%A2%E5%BC%95/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="852-山脉数组的峰顶索引"><a class="markdownIt-Anchor" href="#852-山脉数组的峰顶索引"></a> <a href="https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/">852. 山脉数组的峰顶索引</a></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peakIndexInMountainArray</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 二分查找</span></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j = arr.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (i + j)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(arr[mid] &gt; arr[mid-<span class="number">1</span>] &amp;&amp; arr[mid] &gt; arr[mid+<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(arr[mid]&gt;arr[mid-<span class="number">1</span>])&#123;</span><br><span class="line">                i = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(arr[mid]&lt;arr[mid-<span class="number">1</span>])&#123;</span><br><span class="line">                j = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> leetcode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode-814. 二叉树剪枝</title>
       <link href="/2021/06/04/leetcode/leetcode-814-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%AA%E6%9E%9D/"/>
       <url>/2021/06/04/leetcode/leetcode-814-%E4%BA%8C%E5%8F%89%E6%A0%91%E5%89%AA%E6%9E%9D/</url>
