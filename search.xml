@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>leetcode-面试题 17.10. 主要元素</title>
+      <link href="/2021/07/09/leetcode/leetcode-%E9%9D%A2%E8%AF%95%E9%A2%98-17-10-%E4%B8%BB%E8%A6%81%E5%85%83%E7%B4%A0/"/>
+      <url>/2021/07/09/leetcode/leetcode-%E9%9D%A2%E8%AF%95%E9%A2%98-17-10-%E4%B8%BB%E8%A6%81%E5%85%83%E7%B4%A0/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="面试题-1710-主要元素"><a class="markdownIt-Anchor" href="#面试题-1710-主要元素"></a> <a href="https://leetcode-cn.com/problems/find-majority-element-lcci/">面试题 17.10. 主要元素</a></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">majorityElement</span><span class="params">(<span class="keyword">int</span>[] nums)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> ans = -<span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(count == <span class="number">0</span>)&#123;</span><br><span class="line">                ans = nums[i];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] != ans)&#123;</span><br><span class="line">                count--;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                count++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(nums[i] == ans)&#123;</span><br><span class="line">                cnt++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> cnt*<span class="number">2</span> &gt; nums.length ? ans : -<span class="number">1</span>;  </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> leetcode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>mathType转latex-使用java调用go</title>
       <link href="/2021/06/29/work/mathType%E8%BD%AClatex-%E4%BD%BF%E7%94%A8java%E8%B0%83%E7%94%A8go/"/>
       <url>/2021/06/29/work/mathType%E8%BD%AClatex-%E4%BD%BF%E7%94%A8java%E8%B0%83%E7%94%A8go/</url>
