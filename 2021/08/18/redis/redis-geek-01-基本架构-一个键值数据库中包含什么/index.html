@@ -1,0 +1,178 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>redis-geek-01-数据结构-一个键值数据库中包含哪些数据结构 | vampire`blogs</title><meta name="description" content="数据结构  Redis中包含的数据类型  String(字符串)、List(列表)、Hash(哈希)、Set(集合)、Sorted Set(有序集合)    问题：    这些数据结构都是值的底层实现，键和值本⾝之间⽤什么结构组织？   给哈希表2分配更⼤的空间，例如是当前哈希表1⼤⼩的两倍   把哈希表1中的数据重新映射并拷⻉到哈希表2中   释放哈希表1的空间   这个过程看似简单，但"><meta name="keywords" content="redis"><meta name="author" content="冬遇"><meta name="copyright" content="冬遇"><meta name="format-detection" content="telephone=no"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://liuheng0315.github.io/2021/08/18/redis/redis-geek-01-%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84-%E4%B8%80%E4%B8%AA%E9%94%AE%E5%80%BC%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88/"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//fonts.googleapis.com" crossorigin="crossorigin"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta property="og:type" content="article"><meta property="og:title" content="redis-geek-01-数据结构-一个键值数据库中包含哪些数据结构"><meta property="og:url" content="https://liuheng0315.github.io/2021/08/18/redis/redis-geek-01-%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84-%E4%B8%80%E4%B8%AA%E9%94%AE%E5%80%BC%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88/"><meta property="og:site_name" content="vampire`blogs"><meta property="og:description" content="数据结构  Redis中包含的数据类型  String(字符串)、List(列表)、Hash(哈希)、Set(集合)、Sorted Set(有序集合)    问题：    这些数据结构都是值的底层实现，键和值本⾝之间⽤什么结构组织？   给哈希表2分配更⼤的空间，例如是当前哈希表1⼤⼩的两倍   把哈希表1中的数据重新映射并拷⻉到哈希表2中   释放哈希表1的空间   这个过程看似简单，但"><meta property="og:image" content="https://liuheng0315.github.io/images/redis.jpg"><meta property="article:published_time" content="2021-08-18T14:39:48.000Z"><meta property="article:modified_time" content="2021-08-26T11:23:28.191Z"><meta name="twitter:card" content="summary"><script>var activateDarkMode = function () {
+  document.documentElement.setAttribute('data-theme', 'dark')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#000')
+  }
+}
+var activateLightMode = function () {
+  document.documentElement.setAttribute('data-theme', 'light')
+  if (document.querySelector('meta[name="theme-color"]') !== null) {
+    document.querySelector('meta[name="theme-color"]').setAttribute('content', '#fff')
+  }
+}
+
+var getCookies = function (name) {
+  const value = `; ${document.cookie}`
+  const parts = value.split(`; ${name}=`)
+  if (parts.length === 2) return parts.pop().split(';').shift()
+}
+
+var autoChangeMode = 'false'
+var t = getCookies('theme')
+if (autoChangeMode === '1') {
+  var isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+  var isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+  var isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+  var hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+
+  if (t === undefined) {
+    if (isLightMode) activateLightMode()
+    else if (isDarkMode) activateDarkMode()
+    else if (isNotSpecified || hasNoSupport) {
+      console.log('You specified no preference for a color scheme or your browser does not support it. I Schedule dark mode during night time.')
+      var now = new Date()
+      var hour = now.getHours()
+      var isNight = hour <= 6 || hour >= 18
+      isNight ? activateDarkMode() : activateLightMode()
+    }
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+      if (Cookies.get('theme') === undefined) {
+        e.matches ? activateDarkMode() : activateLightMode()
+      }
+    })
+  } else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else if (autoChangeMode === '2') {
+  now = new Date()
+  hour = now.getHours()
+  isNight = hour <= 6 || hour >= 18
+  if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+  else if (t === 'light') activateLightMode()
+  else activateDarkMode()
+} else {
+  if (t === 'dark') activateDarkMode()
+  else if (t === 'light') activateLightMode()
+}</script><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css"><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Titillium+Web&amp;display=swap"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  hexoversion: '5.0.2',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  bookmark: {
+    message_prev: '按',
+    message_next: '键将本页加入书签'
+  },
+  runtime_unit: '天',
+  runtime: true,
+  copyright: undefined,
+  ClickShowText: undefined,
+  medium_zoom: false,
+  fancybox: true,
+  Snackbar: undefined,
+  justifiedGallery: {
+    js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+    css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+  },
+  baiduPush: false,
+  highlightCopy: true,
+  highlightLang: true,
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true    
+}</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isSidebar: true,
+  postUpdate: '2021-08-26 19:23:28'
+}</script><noscript><style>
+#nav {
+  opacity: 1
+}
+.justified-gallery img {
+  opacity: 1
+}
+</style></noscript><!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.0.2"><link rel="alternate" href="/atom.xml" title="vampire`blogs" type="application/atom+xml">
+</head><body><div id="mobile-sidebar"><div id="menu_mask"></div><div id="mobile-sidebar-menus"><div class="mobile_author_icon"><img class="avatar-img" src="/images/avatar_1522993684.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="mobile_post_data"><div class="mobile_data_item is-center"><div class="mobile_data_link"><a href="/archives/"><div class="headline">文章</div><div class="length_num">278</div></a></div></div><div class="mobile_data_item is-center">      <div class="mobile_data_link"><a href="/tags/"><div class="headline">标签</div><div class="length_num">31</div></a></div></div><div class="mobile_data_item is-center">     <div class="mobile_data_link"><a href="/categories/"><div class="headline">分类</div><div class="length_num">16</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div id="body-wrap"><div id="sidebar"><i class="fas fa-arrow-right on" id="toggle-sidebar"></i><div class="sidebar-toc"><div class="sidebar-toc__title">目录</div><div class="sidebar-toc__progress"><span class="progress-notice">你已经读了</span><span class="progress-num">0</span><span class="progress-percentage">%</span><div class="sidebar-toc__progress-bar">     </div></div><div class="sidebar-toc__content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text"> 数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#redis%E4%B8%AD%E5%8C%85%E5%90%AB%E7%9A%84%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text"> Redis中包含的数据类型</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">1.1.1.</span> <span class="toc-text"> 问题：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BF%99%E4%BA%9B%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%83%BD%E6%98%AF%E5%80%BC%E7%9A%84%E5%BA%95%E5%B1%82%E5%AE%9E%E7%8E%B0%E9%94%AE%E5%92%8C%E5%80%BC%E6%9C%AC%E8%BA%AB%E4%B9%8B%E9%97%B4%E7%94%A8%E4%BB%80%E4%B9%88%E7%BB%93%E6%9E%84%E7%BB%84%E7%BB%87"><span class="toc-number">1.1.2.</span> <span class="toc-text"> 这些数据结构都是值的底层实现，键和值本⾝之间⽤什么结构组织？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E9%9B%86%E5%90%88%E7%B1%BB%E5%9E%8B%E6%9C%89%E9%82%A3%E4%B9%88%E5%A4%9A%E7%9A%84%E5%BA%95%E5%B1%82%E7%BB%93%E6%9E%84%E5%AE%83%E4%BB%AC%E9%83%BD%E6%98%AF%E6%80%8E%E4%B9%88%E7%BB%84%E7%BB%87%E6%95%B0%E6%8D%AE%E7%9A%84%E9%83%BD%E5%BE%88%E5%BF%AB%E5%90%97"><span class="toc-number">1.1.3.</span> <span class="toc-text"> 为什么集合类型有那么多的底层结构，它们都是怎么组织数据的，都很快吗？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%80%E5%8D%95%E5%8A%A8%E6%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%92%8C%E5%B8%B8%E7%94%A8%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%98%AF%E4%B8%80%E5%9B%9E%E4%BA%8B%E5%90%97"><span class="toc-number">1.1.4.</span> <span class="toc-text"> 什么是简单动态字符串，和常⽤的字符串是⼀回事吗？</span></a></li></ol></li></ol></li></ol></div></div></div><header class="post-bg" id="page-header" style="background-image: url(/images/redis.jpg)"><nav id="nav"><span class="pull-left" id="blog_name"><a class="blog_title" id="site-name" href="/">vampire`blogs</a></span><span class="pull-right menus"><div id="search_button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><span class="toggle-menu close"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></span></span></nav><div id="post-info"><div id="post-title"><div class="posttitle">redis-geek-01-数据结构-一个键值数据库中包含哪些数据结构</div></div><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-08-18T14:39:48.000Z" title="发表于 2021-08-18 22:39:48">2021-08-18</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-08-26T11:23:28.191Z" title="更新于 2021-08-26 19:23:28">2021-08-26</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/redis/">redis</a></span></div><div class="meta-secondline"> <span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2021/08/18/redis/redis-geek-01-%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84-%E4%B8%80%E4%B8%AA%E9%94%AE%E5%80%BC%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88/#post-comment" itemprop="discussionUrl"><span class="valine-comment-count comment-count" data-xid="/2021/08/18/redis/redis-geek-01-%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84-%E4%B8%80%E4%B8%AA%E9%94%AE%E5%80%BC%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88/" itemprop="commentCount"></span></a></span></div></div></div></header><main class="layout_post" id="content-inner"><article id="post"><div class="post-content" id="article-container"><h2 id="数据结构"><a class="markdownIt-Anchor" href="#数据结构"></a> 数据结构</h2>
+<h3 id="redis中包含的数据类型"><a class="markdownIt-Anchor" href="#redis中包含的数据类型"></a> Redis中包含的数据类型</h3>
+<ul>
+<li>String(字符串)、List(列表)、Hash(哈希)、Set(集合)、Sorted Set(有序集合)</li>
+</ul>
+<p><img src="/images/image-20210826101459882.png" alt="image-20210826101459882" /></p>
+<h4 id="问题"><a class="markdownIt-Anchor" href="#问题"></a> 问题：</h4>
+<ol>
+<li>
+<h4 id="这些数据结构都是值的底层实现键和值本身之间用什么结构组织"><a class="markdownIt-Anchor" href="#这些数据结构都是值的底层实现键和值本身之间用什么结构组织"></a> 这些数据结构都是值的底层实现，键和值本⾝之间⽤什么结构组织？</h4>
+<ul>
+<li>
+<p>给哈希表2分配更⼤的空间，例如是当前哈希表1⼤⼩的两倍</p>
+</li>
+<li>
+<p>把哈希表1中的数据重新映射并拷⻉到哈希表2中</p>
+</li>
+<li>
+<p>释放哈希表1的空间</p>
+</li>
+</ul>
+<p>这个过程看似简单，但是第⼆步涉及⼤量的数据拷⻉，如果⼀次性把哈希表1中的数据都迁移完，会造成Redis线程阻塞，⽆法服务其他请求。此时，Redis就⽆法快速访问数据了。 为了避免这个问题，Redis采⽤了<strong>渐进式rehash</strong>。</p>
+<p>简单来说就是在第⼆步拷⻉数据时，Redis仍然正常处理客⼾端请求，每处理⼀个请求时，从哈希表1中的第⼀个索引位置开始，顺带着将这个索引位置上的所有entries拷⻉到哈希表2中；等处理下⼀个请求时，再顺带拷⻉哈希表1中的下⼀个索引位置的entries</p>
+  <img src="/images/image-20210826151935525.png" alt="image-20210826151935525" style="zoom:50%;" />
+</li>
+<li>
+<h4 id="为什么集合类型有那么多的底层结构它们都是怎么组织数据的都很快吗"><a class="markdownIt-Anchor" href="#为什么集合类型有那么多的底层结构它们都是怎么组织数据的都很快吗"></a> 为什么集合类型有那么多的底层结构，它们都是怎么组织数据的，都很快吗？</h4>
+<p><strong>集合类型</strong>的底层数据结构主要有5种：<strong>整数数组、双向链表、哈希表、压缩列表和 跳表</strong>。</p>
+<p><strong>压缩列表</strong>实际上类似于⼀个数组，数组中的每⼀个元素都对应保存⼀个数据。和数组不同的是，压缩列表在 表头有三个字段zlbytes、zltail和zllen，分别表⽰列表⻓度、列表尾的偏移量和列表中的entry个数；压缩列 表在表尾还有⼀个zlend，表⽰列表结束。</p>
+<p><img src="/images/image-20210826154149881.png" alt="image-20210826154149881" /></p>
+<p>在压缩列表中，如果我们要查找定位第⼀个元素和最后⼀个元素，可以通过表头三个字段的⻓度直接定位，复杂度是O(1)。⽽查找其他元素时，就没有这么⾼效了，只能逐个查找，此时的复杂度就是O(N)了</p>
+<p><strong>跳表</strong>：有序链表只能逐⼀查找元素，导致操作起来⾮常缓慢，于是就出现了跳表。具体来说，跳表在链表的基础上，增加了多级索引，，通过索引位置的⼏个跳转，实现数据的快速定位，当数据量很⼤时，跳表的查找复杂度就是O(logN)。</p>
+<img src="/images/image-20210826154704451.png" alt="image-20210826154704451" style="zoom:50%;" />
+<img src="/images/image-20210826155137460.png" alt="image-20210826155137460" style="zoom:40%;" />
+</li>
+<li>
+<h4 id="什么是简单动态字符串和常用的字符串是一回事吗"><a class="markdownIt-Anchor" href="#什么是简单动态字符串和常用的字符串是一回事吗"></a> 什么是简单动态字符串，和常⽤的字符串是⼀回事吗？</h4>
+</li>
+</ol>
+</div><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">冬遇</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://liuheng0315.github.io/2021/08/18/redis/redis-geek-01-%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84-%E4%B8%80%E4%B8%AA%E9%94%AE%E5%80%BC%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88/">https://liuheng0315.github.io/2021/08/18/redis/redis-geek-01-%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84-%E4%B8%80%E4%B8%AA%E9%94%AE%E5%80%BC%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%AD%E5%8C%85%E5%90%AB%E4%BB%80%E4%B9%88/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://liuheng0315.github.io" target="_blank">vampire`blogs</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/redis/">redis</a></div><div class="post_share"><div class="social-share" data-image="/images/redis.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/08/20/redis/redis-geek-02-%E9%AB%98%E6%80%A7%E8%83%BDIO%E6%A8%A1%E5%9E%8B-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%8D%95%E7%BA%BF%E7%A8%8Bredis%E9%82%A3%E4%B9%88%E5%BF%AB/"><img class="prev-cover" src="/images/redis.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">redis-geek-02-高性能IO模型-为什么单线程redis那么快</div></div></a></div><div class="next-post pull-right"><a href="/2021/08/05/leetcode/leetcode-611-%E6%9C%89%E6%95%88%E4%B8%89%E8%A7%92%E5%BD%A2%E7%9A%84%E4%B8%AA%E6%95%B0/"><img class="next-cover" src="/images/leetcode.jpg" onerror="onerror=null;src='/img/404.jpg'"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">leetcode-611. 有效三角形的个数</div></div></a></div></nav><div class="relatedPosts"><div class="relatedPosts_headline"><i class="fas fa-thumbs-up fa-fw"></i><span> 相关推荐</span></div><div class="relatedPosts_list"><div class="relatedPosts_item"><a href="/2021/08/20/redis/redis-geek-02-高性能IO模型-为什么单线程redis那么快/" title="redis-geek-02-高性能IO模型-为什么单线程redis那么快"><img class="relatedPosts_cover" src="/images/redis.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2021-08-20</div><div class="relatedPosts_title">redis-geek-02-高性能IO模型-为什么单线程redis那么快</div></div></a></div><div class="relatedPosts_item"><a href="/2021/08/27/redis/redis-geek-03-AOF日志-宕机了如何避免数据丢失/" title="redis-geek-03-AOF日志-宕机了如何避免数据丢失"><img class="relatedPosts_cover" src="/images/redis.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2021-08-27</div><div class="relatedPosts_title">redis-geek-03-AOF日志-宕机了如何避免数据丢失</div></div></a></div><div class="relatedPosts_item"><a href="/2021/08/30/redis/redis-geek-04-哨兵机制-主库挂了如何不间断服务/" title="redis-geek-04-哨兵机制-主库挂了如何不间断服务"><img class="relatedPosts_cover" src="/images/redis.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2021-08-30</div><div class="relatedPosts_title">redis-geek-04-哨兵机制-主库挂了如何不间断服务</div></div></a></div><div class="relatedPosts_item"><a href="/2020/11/03/redis/redis笔记-01 rdb和aof的工作流程/" title="redis笔记-01 rdb和aof的工作流程"><img class="relatedPosts_cover" src="/images/redis.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-03</div><div class="relatedPosts_title">redis笔记-01 rdb和aof的工作流程</div></div></a></div><div class="relatedPosts_item"><a href="/2020/11/09/redis/redis笔记-02 主从复制原理、断点续传/" title="redis笔记-02 主从复制原理、断点续传"><img class="relatedPosts_cover" src="/images/redis.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-09</div><div class="relatedPosts_title">redis笔记-02 主从复制原理、断点续传</div></div></a></div><div class="relatedPosts_item"><a href="/2020/11/12/redis/redis笔记-04 redis异步复制、集群脑裂/" title="redis笔记-04 redis异步复制、集群脑裂.md"><img class="relatedPosts_cover" src="/images/redis.jpg"><div class="relatedPosts_main is-center"><div class="relatedPosts_date"><i class="far fa-calendar-alt fa-fw"></i> 2020-11-12</div><div class="relatedPosts_title">redis笔记-04 redis异步复制、集群脑裂.md</div></div></a></div></div></div><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></article></main><footer id="footer" data-type="color"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By 冬遇</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><section id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="font_plus" type="button" title="放大字体"><i class="fas fa-plus"></i></button><button id="font_minus" type="button" title="缩小字体"><i class="fas fa-minus"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></section><div class="search-dialog" id="local-search"><div class="search-dialog__title" id="local-search-title">本地搜索</div><div id="local-input-panel"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div></div><hr/><div id="local-search-results"><div id="local-hits"></div><div id="local-stats"><div class="local-search-stats__hr" id="hr"><span>由</span> <a target="_blank" rel="noopener" href="https://github.com/wzpan/hexo-generator-search" style="color:#49B1F5;">hexo-generator-search</a>
+ <span>提供支持</span></div></div></div><span class="search-close-button"><i class="fas fa-times"></i></span></div><div id="search-mask"></div><div><script src="https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js"></script><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js"></script><script src="https://cdn.jsdelivr.net/npm/instant.page/instantpage.min.js" type="module" defer></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>function loadValine () {
+  function initValine () {
+    window.valine = new Valine({
+      el: '#vcomment',
+      appId: 'LY7dlYuuf1Gu16tUa4EU5yBx-gzGzoHsz',
+      appKey: 'AsBkdgufkfS8Sfafq8USX601',
+      placeholder: 'Please leave your footprints',
+      avatar: 'monsterid',
+      meta: 'nick,mail,link'.split(','),
+      pageSize: '10',
+      lang: 'en',
+      recordIP: false,
+      serverURLs: '',
+      emojiCDN: '',
+      emojiMaps: "",
+      enableQQ: false,
+      path: window.location.pathname,
+    });
+    if ('') { valine.config.requiredFields= ''.split(',') }
+  }
+
+  if (typeof Valine === 'function') initValine() 
+  else $.getScript('https://cdn.jsdelivr.net/npm/valine/dist/Valine.min.js', initValine)
+}
+
+if ('Valine' === 'Valine' || !false) {
+  if (false) loadComment(document.querySelector('#vcomment'),loadValine)
+  else setTimeout(() => loadValine(), 0)
+} else {
+  function loadOtherComment () {
+    loadValine()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon" src="/js/third-party/canvas-ribbon.js" size="150" alpha="0.6" zIndex="-1" mobile="false" data-click="false"></script><script defer="defer" id="ribbon_piao" mobile="false" src="/js/third-party/piao.js"></script><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer/dist/APlayer.min.js"></script><script src="https://cdn.jsdelivr.net/gh/metowolf/MetingJS@1.2/dist/Meting.min.js"></script></div></body></html>
