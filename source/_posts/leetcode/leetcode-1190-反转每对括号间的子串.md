@@ -11,6 +11,42 @@ typora-root-url: ../..
 
 #### [1190. 反转每对括号间的子串](https://leetcode-cn.com/problems/reverse-substrings-between-each-pair-of-parentheses/)
 
+优化解法
+
+```java
+class Solution {
+    public String reverseParentheses(String s) {
+        Stack<Character> stack = new Stack<>();
+        for(int i = 0; i < s.length(); i++){
+            Character ch = s.charAt(i);
+            if(ch == ')'){
+                StringBuffer sb = new StringBuffer();
+                // 此时将栈（括号前的取出
+                Character tmp;
+                while((tmp = stack.pop()) != '('){
+                    sb.append(tmp);
+                }
+
+                for(int k = 0; k < sb.length(); k++){
+                    stack.push(sb.charAt(k));
+                }
+            }else{
+                stack.push(ch);
+            }
+        }
+        StringBuffer ans = new StringBuffer();
+        while(!stack.isEmpty()){
+            ans.append(stack.pop());
+        }
+        return ans.reverse().toString();
+    }
+}
+```
+
+
+
+原始解法
+
 ```java
 class Solution {
     public String reverseParentheses(String s) {
