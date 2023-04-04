@@ -6,7 +6,7 @@
   <link href="https://liuheng0315.github.io/atom.xml" rel="self"/>
   
   <link href="https://liuheng0315.github.io/"/>
-  <updated>2023-04-03T14:17:32.361Z</updated>
+  <updated>2023-04-04T15:30:02.825Z</updated>
   <id>https://liuheng0315.github.io/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>leetcode-171. Excel 表列序号</title>
+    <link href="https://liuheng0315.github.io/2023/04/04/leetcode/leetcode-171-Excel-%E8%A1%A8%E5%88%97%E5%BA%8F%E5%8F%B7/"/>
+    <id>https://liuheng0315.github.io/2023/04/04/leetcode/leetcode-171-Excel-%E8%A1%A8%E5%88%97%E5%BA%8F%E5%8F%B7/</id>
+    <published>2023-04-04T15:29:08.000Z</published>
+    <updated>2023-04-04T15:30:02.825Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://leetcode.cn/problems/excel-sheet-column-number/description/">171. Excel 表列序号</a></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">titleToNumber</span><span class="params">(String columnTitle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(columnTitle == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> n = columnTitle.length();</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 大A的为65</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; columnTitle.length(); i++)&#123;</span><br><span class="line">            <span class="keyword">char</span> x = columnTitle.charAt(i);</span><br><span class="line">            <span class="keyword">int</span> k = Integer.valueOf(x) - Integer.valueOf(<span class="string">&#x27;A&#x27;</span>) + <span class="number">1</span> ;</span><br><span class="line">            res += Math.pow(<span class="number">26</span>, n - i - <span class="number">1</span>) * k;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
+      
+    
+    
+    
+    <category term="leetcode" scheme="https://liuheng0315.github.io/categories/leetcode/"/>
+    
+    
+    <category term="leetcode" scheme="https://liuheng0315.github.io/tags/leetcode/"/>
+    
+  </entry>
   
   <entry>
     <title>leetcode-1971. 寻找图中是否存在路径</title>
@@ -471,30 +495,6 @@
     <category term="mathType" scheme="https://liuheng0315.github.io/tags/mathType/"/>
     
     <category term="go" scheme="https://liuheng0315.github.io/tags/go/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>leetcode-852. 山脉数组的峰顶索引</title>
-    <link href="https://liuheng0315.github.io/2021/06/16/leetcode/leetcode-852-%E5%B1%B1%E8%84%89%E6%95%B0%E7%BB%84%E7%9A%84%E5%B3%B0%E9%A1%B6%E7%B4%A2%E5%BC%95/"/>
-    <id>https://liuheng0315.github.io/2021/06/16/leetcode/leetcode-852-%E5%B1%B1%E8%84%89%E6%95%B0%E7%BB%84%E7%9A%84%E5%B3%B0%E9%A1%B6%E7%B4%A2%E5%BC%95/</id>
-    <published>2021-06-16T11:30:34.000Z</published>
-    <updated>2021-06-16T11:33:29.727Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h4 id="852-山脉数组的峰顶索引"><a class="markdownIt-Anchor" href="#852-山脉数组的峰顶索引"></a> <a href="https://leetcode-cn.com/problems/peak-index-in-a-mountain-array/">852. 山脉数组的峰顶索引</a></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peakIndexInMountainArray</span><span class="params">(<span class="keyword">int</span>[] arr)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 二分查找</span></span><br><span class="line">        <span class="keyword">int</span> i = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> j = arr.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">while</span>(<span class="keyword">true</span>)&#123;</span><br><span class="line">            <span class="keyword">int</span> mid = (i + j)/<span class="number">2</span>;</span><br><span class="line">            <span class="keyword">if</span>(arr[mid] &gt; arr[mid-<span class="number">1</span>] &amp;&amp; arr[mid] &gt; arr[mid+<span class="number">1</span>])&#123;</span><br><span class="line">                <span class="keyword">return</span> mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(arr[mid]&gt;arr[mid-<span class="number">1</span>])&#123;</span><br><span class="line">                i = mid;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(arr[mid]&lt;arr[mid-<span class="number">1</span>])&#123;</span><br><span class="line">                j = mid;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla</summary>
-      
-    
-    
-    
-    <category term="leetcode" scheme="https://liuheng0315.github.io/categories/leetcode/"/>
-    
-    
-    <category term="leetcode" scheme="https://liuheng0315.github.io/tags/leetcode/"/>
     
   </entry>
   

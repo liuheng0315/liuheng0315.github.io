@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>leetcode-171. Excel 表列序号</title>
+      <link href="/2023/04/04/leetcode/leetcode-171-Excel-%E8%A1%A8%E5%88%97%E5%BA%8F%E5%8F%B7/"/>
+      <url>/2023/04/04/leetcode/leetcode-171-Excel-%E8%A1%A8%E5%88%97%E5%BA%8F%E5%8F%B7/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p><a href="https://leetcode.cn/problems/excel-sheet-column-number/description/">171. Excel 表列序号</a></p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.math.*;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">titleToNumber</span><span class="params">(String columnTitle)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(columnTitle == <span class="keyword">null</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> n = columnTitle.length();</span><br><span class="line">        <span class="keyword">int</span> res = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 大A的为65</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; columnTitle.length(); i++)&#123;</span><br><span class="line">            <span class="keyword">char</span> x = columnTitle.charAt(i);</span><br><span class="line">            <span class="keyword">int</span> k = Integer.valueOf(x) - Integer.valueOf(<span class="string">&#x27;A&#x27;</span>) + <span class="number">1</span> ;</span><br><span class="line">            res += Math.pow(<span class="number">26</span>, n - i - <span class="number">1</span>) * k;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> leetcode </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> leetcode </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>leetcode-1971. 寻找图中是否存在路径</title>
       <link href="/2023/04/03/leetcode/leetcode-1971-%E5%AF%BB%E6%89%BE%E5%9B%BE%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E8%B7%AF%E5%BE%84/"/>
       <url>/2023/04/03/leetcode/leetcode-1971-%E5%AF%BB%E6%89%BE%E5%9B%BE%E4%B8%AD%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8%E8%B7%AF%E5%BE%84/</url>
